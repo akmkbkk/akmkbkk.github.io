@@ -88,7 +88,7 @@
 					<span class="s1-txt1 where1 p-l-35">Seconds</span>
 				</div>
 			</div>
-			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+			<h3 id="text_honeymoon" class="l1-txt1 txt-center p-b-40 respon1">
 				To Our Chocomoon
 			</h3>
 		</div>
@@ -116,7 +116,7 @@
 					<span class="s1-txt1 where1 p-l-35">Seconds</span>
 				</div>
 			</div>
-			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+			<h3 id="text_chocopie" class="l1-txt1 txt-center p-b-40 respon1">
 				To Chocopie's B'day
 			</h3>
 		</div>
@@ -144,7 +144,7 @@
 					<span class="s1-txt1 where1 p-l-35">Seconds</span>
 				</div>
 			</div>
-			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+			<h3 id="text_chocobaby" class="l1-txt1 txt-center p-b-40 respon1">
 				To Chocobaby's B'day
 			</h3>
 		</div>
@@ -173,7 +173,7 @@
 				</div>
 			</div>
 			<h3 class="l1-txt1 txt-center p-b-40 respon1">
-				To 1st Anniversary
+				To our 1st Anniversary
 			</h3>
 		</div>
 
@@ -233,6 +233,9 @@ var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
+  var toHideDate = new Date().getDate();
+  var toHideMonth = new Date().getMonth();
+  var toHideYear = new Date().getYear();
 
   // Find the distance between now and the count down date
   var distanceWedding = countDownDateWedding - now;
@@ -294,6 +297,11 @@ var x = setInterval(function() {
 	document.getElementById("AnniSecs").innerHTML = secondsAnni;
   
 
+	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
+		document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		document.getElementById("text_chocopie").innerHTML = "To Ekta's bday";
+		document.getElementById("text_chocobaby").innerHTML = "To Anand's Bday";
+	}
   
 
   // If the count down is finished, write some text
