@@ -1,142 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Anand's text converter</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+	<title>Coming Soon 9</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#"><span id="demo" class="badge badge-dark">...</span></a>
-</nav>
-
-<div class="container-fluid">
-  <h1>Hello Visitor :)</h1>
-  <p>Want your text to convert to a secret message? You are at the right place :P</p>
-  <p>Paste your text in the box below and see the magic :D</p>
-  <div class="row">
-    <div class="col-sm-1" ></div>
-    <div class="col-sm-10" >
-	<span class="badge badge-pill badge-info" style="display:none;float:right" id="input_copied">copied to clipboard</span>
-	<div class="form-group">
-      		<label for="inputArea">Input </label>
-      		<textarea class="form-control" id="inputArea" rows="3"></textarea>
-    	</div></div>
-    <div class="col-sm-1" ></div>
-  </div>
-<div class="row">
-    <div class="col-sm-1" ></div>
-    <div class="col-sm-10" ><button type="button" onclick="encodeInput()" class="btn btn-primary">Encode</button>&nbsp;<button type="button" onclick="copyToClipBoardInput()" class="btn btn-outline-primary">Copy</button>&nbsp;<button type="button" onclick="clearInput()" class="btn btn-outline-primary">Clear</button></div>
-    <div class="col-sm-1" ></div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-sm-1" ></div>
-    <div class="col-sm-10" >
-	<span style="display:none;float:right" class="badge badge-pill badge-info" id="output_copied">copied to clipboard</span>
-	<div class="form-group">
-      		<label for="outputArea">Output </label>
-      		<textarea class="form-control" id="outputArea" rows="3"></textarea>
-    	</div>
-    </div>
-    <div class="col-sm-1" ></div>
-  </div>
-<div class="row">
-    <div class="col-sm-1" ></div>
-    <div class="col-sm-10" ><button type="button" onclick="decodeOutput()" class="btn btn-primary">Decode</button>&nbsp;<button type="button" onclick="copyToClipBoardOutput()" class="btn btn-outline-primary">Copy</button>&nbsp;<button type="button" onclick="clearOutput()" class="btn btn-outline-primary">Clear</button></div>
-    <div class="col-sm-1" ></div>
-</div>
-</div>
-</body>
-<script>
-
-function clearInput() {
-  var i = document.getElementById("inputArea");
-  i.value = '';
-}
-
-function clearOutput() {
-  var i = document.getElementById("outputArea");
-  i.value = '';
-}
-
-function copyToClipBoardInput() {
-  var copyText = document.getElementById("inputArea");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  var x = document.getElementById("input_copied");
-  if (x.style.display === "none" && copyText.value.length >0) {
-    x.style.display = "block";
-  }
-  var delayInMilliseconds = 1000; //1 second
-  setTimeout(function() {
-	x.style.display = "none";
-  }, delayInMilliseconds);
-}
-
-function copyToClipBoardOutput() {
-  var copyText = document.getElementById("outputArea");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  var x = document.getElementById("output_copied");
-  if (x.style.display === "none" && copyText.value.length >0) {
-    x.style.display = "block";
-  }
-  var delayInMilliseconds = 1000; //1 second
-  setTimeout(function() {
-	x.style.display = "none";
-  }, delayInMilliseconds);
-}
-
-function encodeInput() {
-  var inputText = document.getElementById("inputArea").value;
-  let outputText = [];
-  let outputTextAsCharArr = [];
-	for(var i=0;i<inputText.length;i++){
-		if((inputText[i].charCodeAt()>=65 && inputText[i].charCodeAt() <=89) || (inputText[i].charCodeAt()>=97 && inputText[i].charCodeAt() <=121)){
-			outputText[i] = String.fromCharCode(inputText[i].charCodeAt()+1);
-		}else if(inputText[i].charCodeAt()==90){
-			outputText[i] = String.fromCharCode('A'.charCodeAt());
-		}else if(inputText[i].charCodeAt()==122){
-			outputText[i] = String.fromCharCode('a'.charCodeAt());
-		}else{
-			outputText[i] = inputText[i];
-		}
-		
-	}
-	document.getElementById("outputArea").value = outputText.join("");
 	
-}
+	<!--  -->
+	<div class="simpleslide100">
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg04.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg05.jpg');"></div>
+	</div>
 
-function decodeOutput() {
-  var inputText = document.getElementById("outputArea").value;
-  let outputText = [];
-  let outputTextAsCharArr = [];
-	for(var i=0;i<inputText.length;i++){
-		if((inputText[i].charCodeAt()>=66 && inputText[i].charCodeAt() <=90) || (inputText[i].charCodeAt()>=98 && inputText[i].charCodeAt() <=122)){
-			outputText[i] = String.fromCharCode(inputText[i].charCodeAt()-1);
-		}else if(inputText[i].charCodeAt()==65){
-			outputText[i] = String.fromCharCode('Z'.charCodeAt());
-		}else if(inputText[i].charCodeAt()==97){
-			outputText[i] = String.fromCharCode('z'.charCodeAt());
-		}else{
-			outputText[i] = inputText[i];
-		}
-		
-	}
-	document.getElementById("inputArea").value = outputText.join("");
+	<div class="flex-col-c-sb size1 overlay1">
 	
-}
-</script>
+		<!--  -->
+		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+			<div class="flex-w flex-c-m cd100">
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="weddingDays" class="l1-txt2 p-b-9 days">99</span>
+					<span class="s1-txt1 where1 p-l-35">Days</span>
+				</div>
 
-<script>
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="weddingHours" class="l1-txt2 p-b-9 hours">60</span>
+					<span class="s1-txt1 where1 p-l-35">Hours</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="weddingMinutes" class="l1-txt2 p-b-9 minutes">60</span>
+					<span class="s1-txt1 where1 p-l-35">Minutes</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="weddingSeconds" class="l1-txt2 p-b-9 seconds">60</span>
+					<span class="s1-txt1 where1 p-l-35">Seconds</span>
+				</div>
+			</div>
+			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+				To Our Wedding
+			</h3>
+		</div>
+
+
+		<!--  -->
+		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+			<div class="flex-w flex-c-m cd100">
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="hmDays" class="l1-txt2 p-b-9 days">99</span>
+					<span class="s1-txt1 where1 p-l-35">Days</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="hmHours" class="l1-txt2 p-b-9 hours">60</span>
+					<span class="s1-txt1 where1 p-l-35">Hours</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="hmMins" class="l1-txt2 p-b-9 minutes">60</span>
+					<span class="s1-txt1 where1 p-l-35">Minutes</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="hmSecs" class="l1-txt2 p-b-9 seconds">60</span>
+					<span class="s1-txt1 where1 p-l-35">Seconds</span>
+				</div>
+			</div>
+			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+				To Our Chocomoon
+			</h3>
+		</div>
+
+		<!--  -->
+		<div class="flex-w flex-c-m p-b-35">
+			<a href="#" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
+				<i class="fa fa-facebook"></i>
+			</a>
+
+			<a href="#" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
+				<i class="fa fa-twitter"></i>
+			</a>
+
+			<a href="#" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
+				<i class="fa fa-youtube-play"></i>
+			</a>
+		</div>
+	</div>
+
+
+
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/moment.min.js"></script>
+	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
+	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	
+	<script>
 // Set the date we're counting down to
-var countDownDate = new Date("Nov 30, 2020 22:00:00").getTime();
+var countDownDateWedding = new Date("Nov 30, 2020 22:00:00").getTime();
+var countDownDateHoneyMoon = new Date("Dec 11, 2020 14:30:00").getTime();
+var countDownDateEktaBday = new Date("Dec 24, 2020 23:59:59").getTime();
+var countDownDateAnandBday = new Date("Feb 09, 2021 23:59:59").getTime();
+var countDownAnniversary = new Date("Nov 29, 2021 23:59:59").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -145,30 +144,74 @@ var x = setInterval(function() {
   var now = new Date().getTime();
 
   // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  var distanceWedding = countDownDateWedding - now;
+  var distanceHoneyMoon = countDownDateHoneyMoon - now;
+  var distanceEktaBday = countDownDateEktaBday - now;
+  var distanceAnandBday = countDownDateAnandBday - now;
+  var distanceAnniversary = countDownAnniversary - now;
 
   // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var daysW = Math.floor(distanceWedding / (1000 * 60 * 60 * 24));
+  var hoursW = Math.floor((distanceWedding % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesW = Math.floor((distanceWedding % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsW = Math.floor((distanceWedding % (1000 * 60)) / 1000);
+  
+  var daysH = Math.floor(distanceHoneyMoon / (1000 * 60 * 60 * 24));
+  var hoursH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsH = Math.floor((distanceHoneyMoon % (1000 * 60)) / 1000);
+  
+  var daysE = Math.floor(distanceEktaBday / (1000 * 60 * 60 * 24));
+  var hoursE = Math.floor((distanceEktaBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesE = Math.floor((distanceEktaBday % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsE = Math.floor((distanceEktaBday % (1000 * 60)) / 1000);
+  
+  var daysA = Math.floor(distanceAnandBday / (1000 * 60 * 60 * 24));
+  var hoursA = Math.floor((distanceAnandBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesA = Math.floor((distanceAnandBday % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsA = Math.floor((distanceAnandBday % (1000 * 60)) / 1000);
+  
+  var daysAnni = Math.floor(distanceAnniversary / (1000 * 60 * 60 * 24));
+  var hoursAnni = Math.floor((distanceAnniversary % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesAnni = Math.floor((distanceAnniversary % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsAnni = Math.floor((distanceAnniversary % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  if(days<10){
-    document.getElementById("demo").innerHTML = '<span style="color:red">'+days + "d " + hours + "h "
-	+ minutes + "m " + seconds + "s "+"</span>";
-  }else{
-	document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-	+ minutes + "m " + seconds + "s ";
-  }
+    document.getElementById("weddingDays").innerHTML = daysW;
+	document.getElementById("weddingHours").innerHTML = hoursW;
+	document.getElementById("weddingMinutes").innerHTML = minutesW;
+	document.getElementById("weddingSeconds").innerHTML = +secondsW;
+	
+	document.getElementById("hmDays").innerHTML = daysH;
+	document.getElementById("hmHours").innerHTML = hoursH;
+	document.getElementById("hmMins").innerHTML = minutesH;
+	document.getElementById("hmSecs").innerHTML = +secondsH;
+	
+	document.getElementById("weddingDays").innerHTML = daysW;
+	document.getElementById("weddingHours").innerHTML = hoursW;
+	document.getElementById("weddingMinutes").innerHTML = minutesW;
+	document.getElementById("weddingSeconds").innerHTML = +secondsW;
+	
+	document.getElementById("weddingDays").innerHTML = daysW;
+	document.getElementById("weddingHours").innerHTML = hoursW;
+	document.getElementById("weddingMinutes").innerHTML = minutesW;
+	document.getElementById("weddingSeconds").innerHTML = +secondsW;
+	
+	document.getElementById("weddingDays").innerHTML = daysW;
+	document.getElementById("weddingHours").innerHTML = hoursW;
+	document.getElementById("weddingMinutes").innerHTML = minutesW;
+	document.getElementById("weddingSeconds").innerHTML = +secondsW;
+  
 
   
 
   // If the count down is finished, write some text
-  if (distance < 0) {
+  if (distanceWedding < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("demo").innerHTML = "Happy Wedding Day";
   }
 }, 1000);
 </script>
+
+</body>
 </html>
