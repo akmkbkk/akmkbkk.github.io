@@ -37,8 +37,8 @@
 	<div class="flex-col-c-sb size1 overlay1">
 	
 		<!--  -->
-		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
-			<div class="flex-w flex-c-m cd100">
+		<div id="wedding_placeholder" class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+			<div  class="flex-w flex-c-m cd100">
 				<div class="flex-col-c wsize1 m-b-30">
 					<span id="weddingDays" class="l1-txt2 p-b-9 days">99</span>
 					<span class="s1-txt1 where1 p-l-35">Days</span>
@@ -228,6 +228,8 @@ var countDownDateEktaBday = new Date("Dec 24, 2020 23:59:59").getTime();
 var countDownDateAnandBday = new Date("Feb 09, 2021 23:59:59").getTime();
 var countDownAnniversary = new Date("Nov 29, 2021 23:59:59").getTime();
 
+
+
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -238,17 +240,12 @@ var x = setInterval(function() {
   var toHideYear = new Date().getYear();
 
   // Find the distance between now and the count down date
-  var distanceWedding = countDownDateWedding - now;
   var distanceHoneyMoon = countDownDateHoneyMoon - now;
   var distanceEktaBday = countDownDateEktaBday - now;
   var distanceAnandBday = countDownDateAnandBday - now;
   var distanceAnniversary = countDownAnniversary - now;
 
   // Time calculations for days, hours, minutes and seconds
-  var daysW = Math.floor(distanceWedding / (1000 * 60 * 60 * 24));
-  var hoursW = Math.floor((distanceWedding % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutesW = Math.floor((distanceWedding % (1000 * 60 * 60)) / (1000 * 60));
-  var secondsW = Math.floor((distanceWedding % (1000 * 60)) / 1000);
   
   var daysH = Math.floor(distanceHoneyMoon / (1000 * 60 * 60 * 24));
   var hoursH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -270,11 +267,6 @@ var x = setInterval(function() {
   var minutesAnni = Math.floor((distanceAnniversary % (1000 * 60 * 60)) / (1000 * 60));
   var secondsAnni = Math.floor((distanceAnniversary % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-    document.getElementById("weddingDays").innerHTML = daysW;
-	document.getElementById("weddingHours").innerHTML = hoursW;
-	document.getElementById("weddingMinutes").innerHTML = minutesW;
-	document.getElementById("weddingSeconds").innerHTML = secondsW;
 	
 	document.getElementById("hmDays").innerHTML = daysH;
 	document.getElementById("hmHours").innerHTML = hoursH;
@@ -303,13 +295,47 @@ var x = setInterval(function() {
 		document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
 	}
   
+}, 1000);
+
+
+var y = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  var toHideDate = new Date().getDate();
+  var toHideMonth = new Date().getMonth();
+  var toHideYear = new Date().getYear();
+
+  // Find the distance between now and the count down date
+  var distanceWedding = countDownDateWedding - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var daysW = Math.floor(distanceWedding / (1000 * 60 * 60 * 24));
+  var hoursW = Math.floor((distanceWedding % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesW = Math.floor((distanceWedding % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsW = Math.floor((distanceWedding % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+    document.getElementById("weddingDays").innerHTML = daysW;
+	document.getElementById("weddingHours").innerHTML = hoursW;
+	document.getElementById("weddingMinutes").innerHTML = minutesW;
+	document.getElementById("weddingSeconds").innerHTML = secondsW;
+  
+
+	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
+		document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+	}
+  
 
   // If the count down is finished, write some text
   if (distanceWedding < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "Happy Wedding Day";
+	clearInterval(y);
+    document.getElementById("wedding_placeholder").innerHTML = "<h3 class='l1-txt1 txt-center p-b-40 respon1'>Happy Wedding Day my sweetheart. I Love you</h3>";
   }
 }, 1000);
+
 </script>
 
 </body>
