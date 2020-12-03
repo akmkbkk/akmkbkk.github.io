@@ -94,7 +94,7 @@
 		</div>
 		
 				<!--  -->
-		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+		<div id="ekta_bday_placeholder" class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
 			<div class="flex-w flex-c-m cd100">
 				<div class="flex-col-c wsize1 m-b-30">
 					<span id="Edays" class="l1-txt2 p-b-9 days">99</span>
@@ -176,6 +176,36 @@
 				To our 1st Anniversary
 			</h3>
 		</div>
+		
+				<!--  -->
+		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+		
+			<h3 class="l1-txt1 txt-center p-b-40 respon1">
+				togather since
+			</h3>
+			<div class="flex-w flex-c-m cd100">
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="t_days" class="l1-txt2 p-b-9 days">99</span>
+					<span class="s1-txt1 where1 p-l-35">Days</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="t_hrs" class="l1-txt2 p-b-9 hours">60</span>
+					<span class="s1-txt1 where1 p-l-35">Hours</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="t_mins" class="l1-txt2 p-b-9 minutes">60</span>
+					<span class="s1-txt1 where1 p-l-35">Minutes</span>
+				</div>
+
+				<div class="flex-col-c wsize1 m-b-30">
+					<span id="t_sec" class="l1-txt2 p-b-9 seconds">60</span>
+					<span class="s1-txt1 where1 p-l-35">Seconds</span>
+				</div>
+			</div>
+
+		</div>
 
 		<!--  -->
 		<div class="flex-w flex-c-m p-b-35">
@@ -227,6 +257,7 @@ var countDownDateHoneyMoon = new Date("Dec 11, 2020 14:30:00").getTime();
 var countDownDateEktaBday = new Date("Dec 24, 2020 23:59:59").getTime();
 var countDownDateAnandBday = new Date("Feb 09, 2021 23:59:59").getTime();
 var countDownAnniversary = new Date("Nov 29, 2021 23:59:59").getTime();
+var countDownTogather = new Date("Nov 30, 2020 23:59:59").getTime();
 
 
 
@@ -241,7 +272,6 @@ var x = setInterval(function() {
 
   // Find the distance between now and the count down date
   var distanceHoneyMoon = countDownDateHoneyMoon - now;
-  var distanceEktaBday = countDownDateEktaBday - now;
   var distanceAnandBday = countDownDateAnandBday - now;
   var distanceAnniversary = countDownAnniversary - now;
 
@@ -251,11 +281,6 @@ var x = setInterval(function() {
   var hoursH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutesH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60)) / (1000 * 60));
   var secondsH = Math.floor((distanceHoneyMoon % (1000 * 60)) / 1000);
-  
-  var daysE = Math.floor(distanceEktaBday / (1000 * 60 * 60 * 24));
-  var hoursE = Math.floor((distanceEktaBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutesE = Math.floor((distanceEktaBday % (1000 * 60 * 60)) / (1000 * 60));
-  var secondsE = Math.floor((distanceEktaBday % (1000 * 60)) / 1000);
   
   var daysA = Math.floor(distanceAnandBday / (1000 * 60 * 60 * 24));
   var hoursA = Math.floor((distanceAnandBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -273,11 +298,6 @@ var x = setInterval(function() {
 	document.getElementById("hmMins").innerHTML = minutesH;
 	document.getElementById("hmSecs").innerHTML = secondsH;
 	
-	document.getElementById("Edays").innerHTML = daysE;
-	document.getElementById("Ehours").innerHTML = hoursE;
-	document.getElementById("Emins").innerHTML = minutesE;
-	document.getElementById("Esecs").innerHTML = secondsE;
-	
 	document.getElementById("Adays").innerHTML = daysA;
 	document.getElementById("Ahours").innerHTML = hoursA;
 	document.getElementById("Amins").innerHTML = minutesA;
@@ -290,9 +310,15 @@ var x = setInterval(function() {
   
 
 	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
-		document.getElementById("text_honeymoon").innerHTML = "to first trip";
-		document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
-		document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		if(document.getElementById("text_honeymoon")!=null){
+			document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		}
+		if(document.getElementById("text_chocopie")!=null){
+			document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		}
+		if(document.getElementById("text_chocobaby")!=null){
+			document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		}
 	}
   
 }, 1000);
@@ -323,20 +349,117 @@ var y = setInterval(function() {
   
 
 	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
-		document.getElementById("text_honeymoon").innerHTML = "to our first trip togather";
-		document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
-		document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		if(document.getElementById("text_honeymoon")!=null){
+			document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		}
+		if(document.getElementById("text_chocopie")!=null){
+			document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		}
+		if(document.getElementById("text_chocobaby")!=null){
+			document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		}
 	}
   
 
   // If the count down is finished, write some text
   if (distanceWedding < 0) {
 	clearInterval(y);
-    document.getElementById("wedding_placeholder").innerHTML = "<h3 class='l1-txt1 txt-center p-b-40 respon1'>Happy Wedding Day my sweetheart. I Love you</h3>";
+    document.getElementById("wedding_placeholder").innerHTML = "<h3 class='l1-txt1-ektabday txt-center p-b-40 respon1'>Happy Wedding Day my sweetheart. Thanks for everything. I am so lucky and happy to find a gem like you. Let's start a beautiful journey togather</h3>";
   }
 }, 1000);
 
+var z = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  var toHideDate = new Date().getDate();
+  var toHideMonth = new Date().getMonth();
+  var toHideYear = new Date().getYear();
+
+  var distanceEktaBday = countDownDateEktaBday - now;
+  
+  var daysE = Math.floor(distanceEktaBday / (1000 * 60 * 60 * 24));
+  var hoursE = Math.floor((distanceEktaBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesE = Math.floor((distanceEktaBday % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsE = Math.floor((distanceEktaBday % (1000 * 60)) / 1000);
+  
+	
+	document.getElementById("Edays").innerHTML = daysE;
+	document.getElementById("Ehours").innerHTML = hoursE;
+	document.getElementById("Emins").innerHTML = minutesE;
+	document.getElementById("Esecs").innerHTML = secondsE;
+
+	
+   if (distanceEktaBday < 0) {
+	    clearInterval(z);
+        document.getElementById("ekta_bday_placeholder").innerHTML = "<h3 class='l1-txt1-ektabday txt-center p-b-40 respon1'></h3>";
+   }
+   
+   	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
+		if(document.getElementById("text_honeymoon")!=null){
+			document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		}
+		if(document.getElementById("text_chocopie")!=null){
+			document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		}
+		if(document.getElementById("text_chocobaby")!=null){
+			document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		}
+	}
+  
+}, 1000);
+
+var t = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  var toHideDate = new Date().getDate();
+  var toHideMonth = new Date().getMonth();
+  var toHideYear = new Date().getYear();
+
+  var distanceTogather = countDownTogather - now;
+  
+  var daysT = Math.floor(distanceTogather / (1000 * 60 * 60 * 24));
+  var hoursT = Math.floor((distanceTogather % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesT = Math.floor((distanceTogather % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsT = Math.floor((distanceTogather % (1000 * 60)) / 1000);
+  
+	
+	document.getElementById("t_days").innerHTML = -daysT;
+	document.getElementById("t_hrs").innerHTML = -hoursT;
+	document.getElementById("t_mins").innerHTML = -minutesT;
+	document.getElementById("t_sec").innerHTML = -secondsT;
+
+	
+   if (distanceTogather > 0) {
+	    clearInterval(t);
+        document.getElementById("ekta_bday_placeholder").innerHTML = "<h3 class='l1-txt1-ektabday txt-center p-b-40 respon1'>Happiest B'Day my sweetie. I wish you all the happiness of the world. I am so happy when I am with you. I Love you</h3>";
+   }
+   
+   	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
+		if(document.getElementById("text_honeymoon")!=null){
+			document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		}
+		if(document.getElementById("text_chocopie")!=null){
+			document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		}
+		if(document.getElementById("text_chocobaby")!=null){
+			document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		}
+	}
+  
+}, 1000);
+
 </script>
+
+<div class="flex align-center align-vert modal modal--align">
+  <div class="modal__container">
+    <a class="modal__close modal__close--x" aria-hidden="true">&#x2715;</a>
+    <p>Although we have an 'X' to close we should always have a button/link to cancel the modal</p>
+    <button class="modal__close">Cancel link</button>
+  </div>
+</div>
+<script src="vendor/modal/modal.js"></script>
 
 </body>
 </html>
