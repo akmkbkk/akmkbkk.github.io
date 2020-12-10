@@ -66,7 +66,7 @@
 
 
 		<!--  -->
-		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
+		<div id="honeymoon_placeholder" class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
 			<div class="flex-w flex-c-m cd100">
 				<div class="flex-col-c wsize1 m-b-30">
 					<span id="hmDays" class="l1-txt2 p-b-9 days">99</span>
@@ -181,7 +181,7 @@
 		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15">
 		
 			<h3 class="l1-txt1 txt-center p-b-40 respon1">
-				togather since
+				we are togather since
 			</h3>
 			<div class="flex-w flex-c-m cd100">
 				<div class="flex-col-c wsize1 m-b-30">
@@ -271,16 +271,10 @@ var x = setInterval(function() {
   var toHideYear = new Date().getYear();
 
   // Find the distance between now and the count down date
-  var distanceHoneyMoon = countDownDateHoneyMoon - now;
   var distanceAnandBday = countDownDateAnandBday - now;
   var distanceAnniversary = countDownAnniversary - now;
 
   // Time calculations for days, hours, minutes and seconds
-  
-  var daysH = Math.floor(distanceHoneyMoon / (1000 * 60 * 60 * 24));
-  var hoursH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutesH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60)) / (1000 * 60));
-  var secondsH = Math.floor((distanceHoneyMoon % (1000 * 60)) / 1000);
   
   var daysA = Math.floor(distanceAnandBday / (1000 * 60 * 60 * 24));
   var hoursA = Math.floor((distanceAnandBday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -292,11 +286,6 @@ var x = setInterval(function() {
   var minutesAnni = Math.floor((distanceAnniversary % (1000 * 60 * 60)) / (1000 * 60));
   var secondsAnni = Math.floor((distanceAnniversary % (1000 * 60)) / 1000);
 
-	
-	document.getElementById("hmDays").innerHTML = daysH;
-	document.getElementById("hmHours").innerHTML = hoursH;
-	document.getElementById("hmMins").innerHTML = minutesH;
-	document.getElementById("hmSecs").innerHTML = secondsH;
 	
 	document.getElementById("Adays").innerHTML = daysA;
 	document.getElementById("Ahours").innerHTML = hoursA;
@@ -433,10 +422,52 @@ var t = setInterval(function() {
 	
    if (distanceTogather > 0) {
 	    clearInterval(t);
-        document.getElementById("ekta_bday_placeholder").innerHTML = "<h3 class='l1-txt1-ektabday txt-center p-b-40 respon1'>Happiest B'Day my sweetie. I wish you all the happiness of the world. I am so happy when I am with you. I Love you</h3>";
    }
    
    	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
+		if(document.getElementById("text_honeymoon")!=null){
+			document.getElementById("text_honeymoon").innerHTML = "to first trip";
+		}
+		if(document.getElementById("text_chocopie")!=null){
+			document.getElementById("text_chocopie").innerHTML = "To Ekta's b'day";
+		}
+		if(document.getElementById("text_chocobaby")!=null){
+			document.getElementById("text_chocobaby").innerHTML = "To Anand's B'day";
+		}
+	}
+  
+}, 1000);
+
+var xhm = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  var toHideDate = new Date().getDate();
+  var toHideMonth = new Date().getMonth();
+  var toHideYear = new Date().getYear();
+
+  // Find the distance between now and the count down date
+  var distanceHoneyMoon = countDownDateHoneyMoon - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  
+  var daysH = Math.floor(distanceHoneyMoon / (1000 * 60 * 60 * 24));
+  var hoursH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesH = Math.floor((distanceHoneyMoon % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsH = Math.floor((distanceHoneyMoon % (1000 * 60)) / 1000);
+
+	
+	document.getElementById("hmDays").innerHTML = daysH;
+	document.getElementById("hmHours").innerHTML = hoursH;
+	document.getElementById("hmMins").innerHTML = minutesH;
+	document.getElementById("hmSecs").innerHTML = secondsH;
+	
+	if (distanceHoneyMoon < 0) {
+	    clearInterval(xhm);
+        document.getElementById("honeymoon_placeholder").innerHTML = "<h3 class='l1-txt1-ektabday txt-center p-b-40 respon1'>My Baby. our chocomoon has started, I will do everything to make it special for you. I am really happy and excited to have you by my side on this trip. You are so special for me my darling. I love you. Thanks for being with me.  </h3>";
+   }
+  
+	if(toHideDate==21 && toHideMonth==10 && toHideYear==120){
 		if(document.getElementById("text_honeymoon")!=null){
 			document.getElementById("text_honeymoon").innerHTML = "to first trip";
 		}
