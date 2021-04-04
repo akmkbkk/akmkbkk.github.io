@@ -20,8 +20,32 @@
 <!--===============================================================================================-->
 </head>
 <body>
+<div id="myModal" class="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter the secret word...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<form>
+			  <fieldset>
+				<div class="form-group">
+				  <input id="secretWord" type="password" class="form-control" id="exampleInputPassword1" placeholder="enter here">
+				</div>
+			</form>
+      </div>
+      <div class="modal-footer">
+        <button id="secretWordButton" type="button" class="btn btn-primary">Go</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 	
-	<!--  -->
+	
 	<div class="simpleslide100">
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg01.jpg');"></div>
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg02.jpg');"></div>
@@ -33,8 +57,9 @@
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg08.jpg');"></div>
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg09.jpg');"></div>
 	</div>
+	
 
-	<div class="flex-col-c-sb size1 overlay1">
+	<div id="personalContent" class="flex-col-c-sb size1 overlay1" style="display:none">
 	
 		<!--  -->
 		<div id="wedding_placeholder" class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-15" hidden="true">
@@ -251,6 +276,30 @@
 	<script src="js/main.js"></script>
 	
 	<script>
+	
+	var secretWordArray = new Array("@bandariya", "@ektababy","@ekta1235");
+var secret_word='bandariya';	
+	
+$(document).ready(function(){
+   setTimeout(function(){
+      $('.modal').modal('show');
+   },1000); // 1000 to load it after 5 seconds from page load
+});	
+
+$(document).ready(function(){
+	$('#secretWordButton').click(function() {
+		var word = $('#secretWord').val();
+        if($.inArray(word, secretWordArray) !== -1 ){
+			$('#personalContent').show();
+			$('.modal').modal('hide');
+		}else{
+			alert('oopsiee...wrong word, refresh the page if you want to try again');
+			$('.modal').modal('hide');
+		}
+    });
+});	
+	
+	
 // Set the date we're counting down to
 var countDownDateWedding = new Date("Nov 30, 2020 22:00:00").getTime();
 var countDownDateHoneyMoon = new Date("Dec 11, 2020 14:30:00").getTime();
@@ -509,15 +558,6 @@ var xhm = setInterval(function() {
 }, 1000);
 
 </script>
-
-<div class="flex align-center align-vert modal modal--align">
-  <div class="modal__container">
-    <a class="modal__close modal__close--x" aria-hidden="true">&#x2715;</a>
-    <p>Although we have an 'X' to close we should always have a button/link to cancel the modal</p>
-    <button class="modal__close">Cancel link</button>
-  </div>
-</div>
-<script src="vendor/modal/modal.js"></script>
 
 </body>
 </html>
