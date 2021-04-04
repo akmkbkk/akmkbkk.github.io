@@ -33,7 +33,7 @@
 			<form>
 			  <fieldset>
 				<div class="form-group">
-				  <input id="secretWord" type="password" class="form-control" id="exampleInputPassword1" placeholder="enter here">
+				  <input id="secretWord" type="password" class="form-control" placeholder="enter here">
 				</div>
 			</form>
       </div>
@@ -287,6 +287,23 @@ $(document).ready(function(){
 });	
 
 $(document).ready(function(){
+	$("input").focus();
+	$(document).ready(function() {
+	  $(window).keydown(function(event){
+		if(event.keyCode == 13) {
+		  event.preventDefault();
+			var word = $('#secretWord').val();
+			if($.inArray(word, secretWordArray) !== -1 ){
+				$('#personalContent').show();
+				$('.modal').modal('hide');
+			}else{
+				alert('oopsiee...wrong word, refresh the page if you want to try again');
+				$('.modal').modal('hide');
+			}
+		}
+	  });
+	});
+
 	$('#secretWordButton').click(function() {
 		var word = $('#secretWord').val();
         if($.inArray(word, secretWordArray) !== -1 ){
